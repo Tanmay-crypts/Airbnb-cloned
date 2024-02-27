@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter</title>
+</head>
+<body>
+    <h2>Enter the details</h2>
+    <form action="/listings/<%=list._id%>?_method=PUT" method="post">
+        <input type="text" name="listing[title]" placeholder="title" value="<%=list.title %>">
+        <br>
+        <input type="number" name="listing[price]" placeholder="price" value="<%=list.price %>">
+        <br>
+        <input type="text" name="listing[country]" placeholder="country" value="<%=list.country %>">
+        <br>
+        <input type="text" name="listing[location]" placeholder="location" value="<%=list.location %>">
+        <br>
+        <textarea type="text" name="listing[description]" placeholder="description" value=""><%=list.description %></textarea>
+        <br>
+        <input type="text" name="listing[image]" placeholder="image" value="<%=list.image %>">
+        <button>Submit</button>
+    </form>
+</body>
+</html>

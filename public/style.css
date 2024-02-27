@@ -1,0 +1,28 @@
+.links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.info{
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+.card{
+    border: none !important;
+    margin-top: 2rem;
+    padding: 0%;
+    font-weight: 400;
+}
+.card-img-top{
+    border-radius: 2rem;
+    width: 100%;
+    object-fit: cover !important;
+}
+.fa-regular{
+    color: red;
+    font-size: xx-large;
+}

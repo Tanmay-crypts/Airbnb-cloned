@@ -1,0 +1,42 @@
+<% layout("./layouts/boilerplate") %>
+
+<body>
+    <div class="card row mt-4">
+        <img src="<%=list.image%>" class="col-7 offset-2 w-75 mb-4">
+        <h3><%=list.title%></h3>
+
+        <div class="card-body">
+            Owned by <i><%= list.owner.username %></i>
+            <h3><%=list.description %></h3>
+            <h3>&#8377;<%=list.price.toLocaleString('en-IN')%>/night</h3>
+            <h3><%=list.country %></h3>
+            <h3><%=list.location %></h3>
+            <a href="/listings/<%=list._id %>/edit" class="card-link">Edit this</a>
+            <form action="/listings/<%= list._id %>?_method=DELETE" method="post">
+                <button class="btn btn-secondary">Delete</button>
+            </form>
+        </div>
+    </div>
+    
+    <hr>
+<% if(curr){ %>
+    <div class="">
+        <h4>Leave a review</h4>
+        <form action="/listings/<%= list._id %>/reviews" method="post">
+            <input type="range" name="review[rating]" min="1" max="5" >Rating
+            <textarea name="review[comment]" cols="30" rows="10" class="form-control" placeholder="Enter your opinion" ></textarea>
+            <button class="btn btn-outline-dark">Submit</button>
+        </form>
+    </div>
+    <% } %>
+<h4>Reviews</h4>
+<% for(rev of list.reviews){ %>
+<div class="card col-6 ms-4">
+    <div class="card-body">
+    <h3><%=rev.author.username%></h3>
+    <p><%=rev.rating %> stars</p>
+    <p class="card-text"><%= rev.comment %></p>
+    <form action="/listings/<%  %>/reviews/<%  %>" method="get"></form>
+</div>
+<% } %>
+</body>
